@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="RiegoAutónomo.ino" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="__vm\.RiegoAutónomo.vsarduino.h">
+    <ClInclude Include="__vm\.RiegoAutonomo.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Riego.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RiegoAutonomo.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Riego.cpp">
