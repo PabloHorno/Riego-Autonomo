@@ -8,7 +8,7 @@ public:
 	~Riego();
 
 private:
-	Servo valvula1;
-	Servo valvula2;
+	Servo valvula[2];
+	unsigned valvula_pin[2];
 };
 
