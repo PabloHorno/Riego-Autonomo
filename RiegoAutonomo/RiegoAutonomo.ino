@@ -8,6 +8,7 @@
 
 Tiempo tiempo;
 String hora,hora2;
+unsigned portatil;
 
 void setup() {
 	Serial.begin(9600);
