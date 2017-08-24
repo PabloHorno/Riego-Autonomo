@@ -7,7 +7,8 @@
 #include "Riego.h"
 
 Tiempo tiempo;
-String hora,hora2;
+String hora;
+unsigned fijo;
 
 void setup() {
 	Serial.begin(9600);
