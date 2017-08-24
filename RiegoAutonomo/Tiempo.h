@@ -12,14 +12,18 @@
 class Tiempo
 {
  private:
-	 unsigned millis_inicial = 0;
-	 int hora = -1;
-	 int minutos = -1;
-	 int segundos = -1;
+	 unsigned _millis = 0;
+	 int _hora = -1;
+	 int _minutos = -1;
+	 int _segundos = -1;
 	 void actualizar_hora();
 
  public:
+	 int hora;
+	 int minutos;
+	 int segundos;
 	 void init();
+	 void init(unsigned, unsigned, unsigned);
 	 String get_hora_str();
 };
 

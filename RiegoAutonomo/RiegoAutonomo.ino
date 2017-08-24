@@ -7,6 +7,7 @@
 #include "Riego.h"
 
 Tiempo tiempo;
+String hora;
 
 void setup() {
 	Serial.begin(9600);
@@ -17,4 +18,6 @@ void setup() {
 }
 
 void loop() {
+	Serial.println(tiempo.get_hora_str());
+	delay(30000);
 }
