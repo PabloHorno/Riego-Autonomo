@@ -82,10 +82,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hora.h" />
     <ClInclude Include="Riego.h" />
     <ClInclude Include="__vm\.RiegoAutonomo.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Hora.cpp" />
     <ClCompile Include="Riego.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
