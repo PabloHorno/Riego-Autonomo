@@ -2,9 +2,9 @@
 // 
 // 
 
-#include "Hora.h"
+#include "Tiempo.h"
 
-void Hora::actualizar_hora()
+void Tiempo::actualizar_hora()
 {
 	unsigned segundos = (millis() - millis_inicial)/1000;
 	hora += segundos / 3600;
@@ -15,7 +15,7 @@ void Hora::actualizar_hora()
 		minutos = minutos / 60;
 }
 
-void Hora::init()
+void Tiempo::init()
 {
 	while (hora < 0 || hora >= 24) {
 		Serial.println("Introduzca hora:");
@@ -44,7 +44,7 @@ void Hora::init()
 	Serial.print("Hora: " + get_hora_str());
 }
 
-String Hora::get_hora_str()
+String Tiempo::get_hora_str()
 {
 	actualizar_hora();
 	String hora="";

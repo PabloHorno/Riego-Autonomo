@@ -9,7 +9,7 @@
 	#include "WProgram.h"
 #endif
 
-class Hora
+class Tiempo
 {
  private:
 	 unsigned millis_inicial = 0;

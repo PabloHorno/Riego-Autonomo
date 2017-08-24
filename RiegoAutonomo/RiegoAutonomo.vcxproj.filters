@@ -21,7 +21,7 @@
     <ClInclude Include="Riego.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hora.h">
+    <ClInclude Include="Tiempo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClCompile Include="Riego.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hora.cpp">
+    <ClCompile Include="Tiempo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
