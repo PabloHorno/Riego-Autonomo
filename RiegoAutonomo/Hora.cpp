@@ -6,6 +6,13 @@
 
 void Hora::actualizar_hora()
 {
+	unsigned segundos = (millis() - millis_inicial)/1000;
+	hora += segundos / 3600;
+	minutos += segundos / 60;
+	while(hora >= 24)
+		hora = hora/24;
+	while (minutos >= 60)
+		minutos = minutos / 60;
 }
 
 void Hora::init()
