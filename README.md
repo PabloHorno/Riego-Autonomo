@@ -15,5 +15,4 @@ El codigo dispone de dos clases principales, **Riego** encargada de gestionar la
 | ~~Caudalimetro~~     |     1         | --,--€  |
 
 ### Autor
-Pablo Horno Pérez
-___:
+Pablo Horno
