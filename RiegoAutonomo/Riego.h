@@ -30,11 +30,19 @@ class Condicion
 public:
 	Condicion();
 	Condicion(const DateTime);
-	Condicion(const DateTime, const unsigned);
+	Condicion(const DateTime, const unsigned[], const unsigned);
 
 	bool se_cumple_condicion(DateTime);
 	bool operator()(DateTime);
+	void set_dias_semanas(unsigned[]);
+	void set_hora(unsigned);
+	void set_hora(unsigned, unsigned);
+	void set_hora(unsigned, unsigned, unsigned);
+	void set_duracion(DateTime);
+	void set_duracion(unsigned);
+
 private:
+	bool dias_semana[7] = { false,false,false,false,false,false,false };
 	DateTime fecha;
 	unsigned duracion;
 };

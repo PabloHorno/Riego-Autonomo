@@ -31,20 +31,24 @@ Condicion::Condicion()
 
 Condicion::Condicion(const DateTime fecha)
 {
-	this->fecha = fecha;
+	this->fecha = fecha.hour();
 }
 
-Condicion::Condicion(const DateTime fecha, const unsigned duracion)
+Condicion::Condicion(const DateTime fecha, const unsigned dias_semana[], const unsigned duracion)
 {
 	Condicion(fecha);
+	//for()
 	this->duracion = duracion;
 }
-
-bool Condicion::operator()(DateTime)
+bool Condicion::operator()(DateTime now)
 {
 	if (duracion > 0)
 	{
-
+		if (dias_semana[now.dayOfTheWeek()])
+		{
+			
+		}
 	}
-	return false;
+	else
+		return false;
 }
