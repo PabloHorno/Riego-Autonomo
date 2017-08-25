@@ -18,7 +18,7 @@
 15	}
 16	
 --&gt;17	void loop() {
-18		riego.get_fecha();
+18		Serial.println(riego.get_fecha());
 19		delay(1000);
 20		Serial.println("test");
 21	}

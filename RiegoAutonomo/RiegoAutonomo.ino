@@ -15,7 +15,7 @@ void setup() {
 }
 
 void loop() {
-	riego.get_fecha();
+	Serial.println(riego.get_fecha());
 	delay(1000);
 	Serial.println("test");
 }

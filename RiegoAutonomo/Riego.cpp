@@ -14,7 +14,7 @@ void Riego::init()
 	else
 		if (clock.lostPower())
 			clock.adjust(DateTime(F(__DATE__), F(__TIME__)));
-
+	//clock.adjust(DateTime(2017, 8, 25, 3, 0));
 }
 
 String Riego::get_fecha()
@@ -25,3 +25,26 @@ String Riego::get_fecha()
 	return fecha_str;
 }
 
+Condicion::Condicion()
+{
+}
+
+Condicion::Condicion(const DateTime fecha)
+{
+	this->fecha = fecha;
+}
+
+Condicion::Condicion(const DateTime fecha, const unsigned duracion)
+{
+	Condicion(fecha);
+	this->duracion = duracion;
+}
+
+bool Condicion::operator()(DateTime)
+{
+	if (duracion > 0)
+	{
+
+	}
+	return false;
+}

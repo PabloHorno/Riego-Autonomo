@@ -25,5 +25,19 @@ class Riego
 	String get_fecha();
 };
 
+class Condicion
+{
+public:
+	Condicion();
+	Condicion(const DateTime);
+	Condicion(const DateTime,const unsigned);
+
+	bool se_cumple_condicion(DateTime);
+	bool operator()(DateTime);
+private:
+	DateTime fecha;
+	unsigned duracion;
+};
+
 #endif
 
