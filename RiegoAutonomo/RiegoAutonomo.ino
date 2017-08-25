@@ -5,16 +5,17 @@
 */
 #include "Riego.h"
 
-String hora;
+Riego riego;
 
 void setup() {
 	Serial.begin(9600);
 	Serial.setTimeout(20);
 	Serial.println("Iniciando..");
-	delay(3000);
+	riego.init();
 }
 
 void loop() {
-
+	riego.get_fecha();
 	delay(1000);
+	Serial.println("test");
 }
