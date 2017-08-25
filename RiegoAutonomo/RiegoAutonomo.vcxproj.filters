@@ -21,18 +21,12 @@
     <ClInclude Include="Riego.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tiempo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="RiegoAutonomo.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Riego.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tiempo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
