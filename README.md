@@ -6,12 +6,10 @@ El codigo dispone de dos clases principales, **Riego** encargada de gestionar la
 
 ## Material empleado
 
-| Componente    | Unidades      | Precio |
-| ------------- |:-------------:| ------:|
-| Arduino nano  | 1 | --,--€  |
-| Valvula de solenoide   | 2      |   --,--€  |
-| RTC | 1      |    --,--€  |
-| Sensor de Humedad| 1| --,--€|
-
-
-
+|     Componente       |    Unidades   |  Precio |
+| -------------------- |:-------------:| -------:|
+| Arduino nano         |     1         | --,--€  |
+| Valvula de solenoide |     2         | --,--€  |
+| RTC                  |     1         | --,--€  |
+| Sensor de Humedad    |     1         | --,--€  |
+| ~~Caudalimetro         |     1         | --,--€  ~~|
