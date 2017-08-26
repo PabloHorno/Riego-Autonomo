@@ -13,37 +13,37 @@
 #include <Wire.h>
 #include <RTClib.h>
 
-class Riego
-{
-protected:
-	RTC_DS3231 clock;
-	String const nombre_dias[7] = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
-	String const nombre_meses[12] = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
-
-public:
-	void init();
-	String get_fecha();
-};
 
 class Condicion
 {
 public:
 	Condicion();
 	Condicion(const DateTime);
-	Condicion(const DateTime, const char[], const unsigned);
+	Condicion(const DateTime, const char[], const DateTime);
 
-	bool se_cumple_condicion(DateTime);
-	bool operator()(DateTime);
+	bool se_cumple_condicion(const DateTime);
+	bool operator()(const DateTime);
 	void set_dias_semanas(const char[]);
 	void set_hora(const unsigned, const unsigned, const unsigned);
 	void set_duracion(const DateTime);
-	void set_duracion(const unsigned);
 
 private:
 	bool dias_semana[7] = { false,false,false,false,false,false,false };
 	DateTime fecha;
-	unsigned duracion;
+	DateTime duracion;
 };
 
+class Riego
+{
+private:
+	RTC_DS3231 clock;
+	String const nombre_dias[7] = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
+	String const nombre_meses[12] = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+	enum class estado{ ABIERTA, CERRADA, DESCONOCIDA};
+	Condicion condiciones[20];
+public:
+	void init();
+	String get_fecha();
+};
 #endif
 
