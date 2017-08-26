@@ -10,7 +10,8 @@ Condicion condiciones[] = { Condicion(DateTime(0,0,0,9,30,0),"lxv", DateTime(0,0
 							Condicion(DateTime(0,0,0,15,30,0),"lxv", DateTime(0,0,0,1,0,0)),
 							Condicion(DateTime(0,0,0,21,30,0),"lxv", DateTime(0,0,0,1,0,0)),
 };
-Riego riego(2);
+unsigned pins[] = { 4,5 };
+Riego riego(pins);
 
 void setup() {
 	Serial.begin(9600);
@@ -20,8 +21,6 @@ void setup() {
 }
 
 void loop() {
-	Serial.println(riego.get_fecha());
-	delay(1000);
-	Serial.println("test");
+	riego.loop();
 
 }

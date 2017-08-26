@@ -26,6 +26,7 @@ public:
 	void set_dias_semanas(const char[]);
 	void set_hora(const unsigned, const unsigned, const unsigned);
 	void set_duracion(const DateTime);
+	void loop();
 
 private:
 	bool dias_semana[7] = { false,false,false,false,false,false,false };
@@ -41,9 +42,9 @@ private:
 	String const nombre_meses[12] = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
 	enum class estado{ ABIERTA, CERRADA, DESCONOCIDA};
 	Condicion condiciones[20];
-	unsigned num_valvulas;
+	unsigned pin_valvula[10];
 public:
-	Riego(unsigned num_valvulas) { this->num_valvulas = num_valvulas; }
+	Riego(const unsigned[]);
 	void init();
 	String get_fecha();
 };

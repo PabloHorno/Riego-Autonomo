@@ -4,6 +4,14 @@
 
 #include "Riego.h"
 
+Riego::Riego(const unsigned pin_valvula[])
+{
+	for (unsigned i = 0; i < sizeof(this->pin_valvula); i++)
+	{
+		this->pin_valvula[i] = pin_valvula[i];
+	}
+}
+
 void Riego::init()
 {
 	if (!clock.begin())
@@ -98,4 +106,8 @@ void Condicion::set_hora(const unsigned hora, const  unsigned minuto = 0, const 
 void Condicion::set_duracion(const DateTime duracion)
 {
 	this->duracion = duracion;
+}
+
+void Condicion::loop()
+{
 }
