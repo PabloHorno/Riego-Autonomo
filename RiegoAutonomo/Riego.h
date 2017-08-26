@@ -41,7 +41,9 @@ private:
 	String const nombre_meses[12] = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
 	enum class estado{ ABIERTA, CERRADA, DESCONOCIDA};
 	Condicion condiciones[20];
+	unsigned num_valvulas;
 public:
+	Riego(unsigned num_valvulas) { this->num_valvulas = num_valvulas; }
 	void init();
 	String get_fecha();
 };

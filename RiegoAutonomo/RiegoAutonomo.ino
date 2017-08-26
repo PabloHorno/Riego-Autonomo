@@ -6,8 +6,11 @@
 #include <RTClib.h>
 #include <Wire.h>
 #include "Riego.h"
-
-Riego riego;
+Condicion condiciones[] = { Condicion(DateTime(0,0,0,9,30,0),"lxv", DateTime(0,0,0,1,0,0)),
+							Condicion(DateTime(0,0,0,15,30,0),"lxv", DateTime(0,0,0,1,0,0)),
+							Condicion(DateTime(0,0,0,21,30,0),"lxv", DateTime(0,0,0,1,0,0)),
+};
+Riego riego(2);
 
 void setup() {
 	Serial.begin(9600);
