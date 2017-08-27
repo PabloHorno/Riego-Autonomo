@@ -18,13 +18,6 @@ void setup() {
 }
 
 void loop() {
-	Tiempo a(9, 30), b(13,10),ans;
-	ans = a + b;
-	Serial.print(ans.hora);
-	Serial.print(':');
-	Serial.print(ans.minuto);
-	Serial.print(':');
-	Serial.println(ans.segundo);
-	Serial.println(bool( a < b));
-	while (1) {};
+	Serial.println(riego.get_fecha());
+	delay(1000);
 }

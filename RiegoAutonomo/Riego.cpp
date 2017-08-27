@@ -86,7 +86,7 @@ void Condicion::set_dias_semanas(const char dias_semana[])
 			break;
 		default:break;
 		}
-		if (index_dia >= 0)
+		if (index_dia >= 0);
 			this->dias_semana[index_dia] = true;
 	}
 }
