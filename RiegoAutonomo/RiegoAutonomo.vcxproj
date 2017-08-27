@@ -83,10 +83,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Riego.h" />
+    <ClInclude Include="Tiempo.h" />
     <ClInclude Include="__vm\.RiegoAutonomo.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Riego.cpp" />
+    <ClCompile Include="Tiempo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

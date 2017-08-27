@@ -29,12 +29,12 @@ Condicion::Condicion()
 {
 }
 
-Condicion::Condicion(const DateTime fecha)
+Condicion::Condicion(const Tiempo fecha)
 {
 	this->fecha = fecha;
 }
 
-Condicion::Condicion(const DateTime fecha, const char dias[], const DateTime duracion)
+Condicion::Condicion(const Tiempo fecha, const char dias[], const Tiempo duracion)
 {
 	this->fecha = fecha;
 	set_dias_semanas(dias);
@@ -48,10 +48,11 @@ bool Condicion::se_cumple_condicion(const DateTime fecha)
 bool Condicion::operator()(const DateTime now)
 {
 	if (dias_semana[now.dayOfTheWeek()])
-		if (now.hour() > fecha.hour() && fecha.hour() < now.hour() + duracion.hour())
-			if (now.minute() > fecha.minute() && fecha.minute() < now.minute() + duracion.minute())
-				if (now.second() > fecha.second() && fecha.second() < now.second() + duracion.second())
-					return true;
+	{
+		Tiempo hora(now.hour(), now.minute(), now.second());
+			if (hora > fecha && fecha < hora + duracion)
+				return true;
+	}
 	return false;
 }
 
@@ -92,10 +93,10 @@ void Condicion::set_dias_semanas(const char dias_semana[])
 
 void Condicion::set_hora(const unsigned hora, const  unsigned minuto = 0, const  unsigned segundo = 0)
 {
-	fecha = DateTime(fecha.year(), fecha.month(), fecha.day(), hora, minuto, segundo);
+	fecha = Tiempo(hora, minuto, segundo);
 }
 
-void Condicion::set_duracion(const DateTime duracion)
+void Condicion::set_duracion(const Tiempo duracion)
 {
 	this->duracion = duracion;
 }
