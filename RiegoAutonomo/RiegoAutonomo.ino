@@ -3,8 +3,6 @@
  Created:	8/22/2017 5:47:38 PM
  Author:	Pablo Horno
 */
-#include <RTClib.h>
-#include <Wire.h>
 #include "Riego.h"
 Condicion condiciones[] = { Condicion(Tiempo(9,30),"lxv", Tiempo(1)),
 							Condicion(Tiempo(15,30,0),"lxv", Tiempo(1)),
