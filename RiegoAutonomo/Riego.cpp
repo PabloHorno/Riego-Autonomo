@@ -22,7 +22,11 @@ void Riego::init()
 	else
 		if (clock.lostPower())
 			clock.adjust(DateTime(F(__DATE__), F(__TIME__)));
-	//clock.adjust(DateTime(2017, 8, 25, 3, 0));
+	//clock.adjust(DateTime(2017, 8, 28, 15, 8));
+}
+
+void Riego::loop()
+{
 }
 
 String Riego::get_fecha()
@@ -109,6 +113,3 @@ void Condicion::set_duracion(const Tiempo duracion)
 	this->duracion = duracion;
 }
 
-void Condicion::loop()
-{
-}

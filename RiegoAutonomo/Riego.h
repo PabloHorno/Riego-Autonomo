@@ -41,10 +41,11 @@ private:
 	String const nombre_meses[12] = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
 	enum class estado { ABIERTA, CERRADA, DESCONOCIDA };
 	Condicion condiciones[20];
-	unsigned num_valvulas;
+	unsigned pin_valvula[2];
 public:
-	Riego(unsigned num_valvulas) { this->num_valvulas = num_valvulas; }
+	Riego(const unsigned[]);
 	void init();
+	void loop();
 	String get_fecha();
 };
 #endif
