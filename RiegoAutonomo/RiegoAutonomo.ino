@@ -6,8 +6,7 @@
 #include "Riego.h"
 Condicion condiciones[] = { Condicion(Tiempo(9,30),"lxv", Tiempo(1)),
 							Condicion(Tiempo(15,30),"lxv", Tiempo(1)),
-							Condicion(Tiempo(21,30),"lxv", Tiempo(1)),
-};
+							Condicion(Tiempo(21,30),"lxv", Tiempo(1)) };
 unsigned pins[] = { 2,3 };
 Riego riego(pins);
 
