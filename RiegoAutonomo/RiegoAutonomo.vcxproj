@@ -82,6 +82,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Pair.h" />
     <ClInclude Include="Riego.h" />
     <ClInclude Include="Tiempo.h" />
     <ClInclude Include="__vm\.RiegoAutonomo.vsarduino.h" />

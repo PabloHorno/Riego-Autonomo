@@ -13,6 +13,10 @@
 #include <Wire.h>
 #include <RTClib.h>
 #include "Tiempo.h"
+#include "Pair.h"
+
+#define NUM_CONDICIONES 20
+#define NUM_VALVULAS 2
 
 class Condicion
 {
@@ -33,20 +37,33 @@ private:
 	Tiempo duracion;
 };
 
+class Valvula
+{
+public:
+	Valvula(unsigned pin) { pin_valvula = pin; }
+	Valvula() {};
+	enum class estado_enum { ABIERTO, CERRADO, DESCONOCIDO };
+	estado_enum estado = estado_enum::DESCONOCIDO;
+	void abrir();
+	void cerrar();
+private:
+	unsigned pin_valvula = 0;
+};
+
 class Riego
 {
 private:
 	RTC_DS3231 clock;
 	String const nombre_dias[7] = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
 	String const nombre_meses[12] = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
-	enum class estado { ABIERTA, CERRADA, DESCONOCIDA };
-	Condicion condiciones[20];
-	unsigned pin_valvula[2];
+	Pair<Condicion, unsigned> condiciones[NUM_CONDICIONES];
+	Valvula valvulas[NUM_VALVULAS];
 public:
 	Riego(const unsigned[]);
 	void init();
 	void loop();
 	String get_fecha();
+	void set_condicion(const Condicion, const unsigned);
 };
 #endif
 

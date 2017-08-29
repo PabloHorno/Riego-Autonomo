@@ -6,10 +6,8 @@
 
 Riego::Riego(const unsigned pin_valvula[])
 {
-	for (unsigned i = 0; i < sizeof(this->pin_valvula); i++)
-	{
-		this->pin_valvula[i] = pin_valvula[i];
-	}
+	for (unsigned i = 0; i < NUM_VALVULAS; i++)
+		valvulas[i] = Valvula(pin_valvula[i]);
 }
 
 void Riego::init()
@@ -38,6 +36,11 @@ String Riego::get_fecha()
 	return fecha_str;
 }
 
+void Riego::set_condicion(const Condicion condicion, const unsigned valvula)
+{
+}
+
+
 Condicion::Condicion()
 {
 }
@@ -63,8 +66,8 @@ bool Condicion::operator()(const DateTime tiempo)
 	if (dias_semana[tiempo.dayOfTheWeek()])
 	{
 		Tiempo hora(tiempo.hour(), tiempo.minute(), tiempo.second());
-			if (hora > this->hora && this->hora < hora + duracion)
-				return true;
+		if (hora > this->hora && this->hora < hora + duracion)
+			return true;
 	}
 	return false;
 }
@@ -100,7 +103,7 @@ void Condicion::set_dias_semanas(const char dias_semana[])
 		default:break;
 		}
 		if (index_dia >= 0);
-			this->dias_semana[index_dia] = true;
+		this->dias_semana[index_dia] = true;
 	}
 }
 
@@ -114,3 +117,20 @@ void Condicion::set_duracion(const Tiempo duracion)
 	this->duracion = duracion;
 }
 
+void Valvula::abrir()
+{
+	if (estado != estado_enum::ABIERTO)
+	{
+		digitalWrite(pin_valvula, HIGH);
+		estado = estado_enum::ABIERTO;
+	}
+}
+
+void Valvula::cerrar()
+{
+	if (estado != estado_enum::CERRADO)
+	{
+		digitalWrite(pin_valvula, LOW);
+		estado = estado_enum::CERRADO;
+	}
+}

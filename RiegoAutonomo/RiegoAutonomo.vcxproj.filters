@@ -24,6 +24,9 @@
     <ClInclude Include="Tiempo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Pair.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="RiegoAutonomo.ino" />
