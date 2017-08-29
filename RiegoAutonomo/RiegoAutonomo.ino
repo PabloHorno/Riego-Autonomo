@@ -8,7 +8,8 @@ Condicion condiciones[] = { Condicion(Tiempo(9,30),"lxv", Tiempo(1)),
 							Condicion(Tiempo(15,30),"lxv", Tiempo(1)),
 							Condicion(Tiempo(21,30),"lxv", Tiempo(1)),
 };
-Riego riego(2);
+unsigned pins[] = { 4, 5 };
+Riego riego(pins);
 
 void setup() {
 	Serial.begin(9600);

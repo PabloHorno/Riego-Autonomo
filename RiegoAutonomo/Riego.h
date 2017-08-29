@@ -29,7 +29,7 @@ public:
 
 private:
 	bool dias_semana[7] = { false,false,false,false,false,false,false };
-	Tiempo fecha;
+	Tiempo hora;
 	Tiempo duracion;
 };
 

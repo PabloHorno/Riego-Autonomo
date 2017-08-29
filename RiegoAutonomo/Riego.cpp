@@ -20,8 +20,9 @@ void Riego::init()
 		while (true);
 	}
 	else
-		if (clock.lostPower())
+		if (clock.lostPower()) {
 			clock.adjust(DateTime(F(__DATE__), F(__TIME__)));
+		}
 	//clock.adjust(DateTime(2017, 8, 28, 15, 8));
 }
 
@@ -43,12 +44,12 @@ Condicion::Condicion()
 
 Condicion::Condicion(const Tiempo fecha)
 {
-	this->fecha = fecha;
+	this->hora = fecha;
 }
 
 Condicion::Condicion(const Tiempo fecha, const char dias[], const Tiempo duracion)
 {
-	this->fecha = fecha;
+	this->hora = fecha;
 	set_dias_semanas(dias);
 	this->duracion = duracion;
 }
@@ -57,12 +58,12 @@ bool Condicion::se_cumple_condicion(const DateTime fecha)
 {
 	return this->operator()(fecha);
 }
-bool Condicion::operator()(const DateTime now)
+bool Condicion::operator()(const DateTime tiempo)
 {
-	if (dias_semana[now.dayOfTheWeek()])
+	if (dias_semana[tiempo.dayOfTheWeek()])
 	{
-		Tiempo hora(now.hour(), now.minute(), now.second());
-			if (hora > fecha && fecha < hora + duracion)
+		Tiempo hora(tiempo.hour(), tiempo.minute(), tiempo.second());
+			if (hora > this->hora && this->hora < hora + duracion)
 				return true;
 	}
 	return false;
@@ -105,7 +106,7 @@ void Condicion::set_dias_semanas(const char dias_semana[])
 
 void Condicion::set_hora(const unsigned hora, const  unsigned minuto = 0, const  unsigned segundo = 0)
 {
-	fecha = Tiempo(hora, minuto, segundo);
+	this->hora = Tiempo(hora, minuto, segundo);
 }
 
 void Condicion::set_duracion(const Tiempo duracion)
