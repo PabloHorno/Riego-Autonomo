@@ -17,12 +17,12 @@
 
 #define NUM_CONDICIONES 20
 
-class Condicion
+class Tiempo_Riego
 {
 public:
-	Condicion();
-	Condicion(const Tiempo);
-	Condicion(const Tiempo, const char[], const Tiempo);
+	Tiempo_Riego();
+	Tiempo_Riego(const Tiempo);
+	Tiempo_Riego(const Tiempo, const char[], const Tiempo);
 
 	bool se_cumple_condicion(const DateTime);
 	bool operator()(const DateTime);
@@ -63,7 +63,7 @@ private:
 	RTC_DS3231 clock;
 	String const nombre_dias[7] = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
 	String const nombre_meses[12] = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
-	Pair<Condicion, Valvula_t> condiciones[NUM_CONDICIONES];
+	Pair<Tiempo_Riego, Valvula_t> condiciones[NUM_CONDICIONES];
 	unsigned condiciones_activas = 0;
 	Valvula valvulas[(unsigned)Riego::Valvula_t::NUM_VALVULAS];
 public:
@@ -71,9 +71,9 @@ public:
 	void init();
 	void loop();
 	String get_fecha();
-	void set_condicion(const Condicion, const Valvula_t);
-	void set_condicion(const Pair<Condicion, Valvula_t>);
-	void set_condicion(const Pair<Condicion, Valvula_t>[]);
+	void set_condicion(const Tiempo_Riego, const Valvula_t);
+	void set_condicion(const Pair<Tiempo_Riego, Valvula_t>);
+	void set_condicion(const Pair<Tiempo_Riego, Valvula_t>[]);
 };
 #endif
 

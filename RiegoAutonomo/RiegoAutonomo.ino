@@ -12,8 +12,8 @@ void setup() {
 	Serial.setTimeout(20);
 	Serial.println("Iniciando..");
 	riego.init();
-	riego.set_condicion(Condicion(Tiempo(14, 18), "lmj", Tiempo(0, 1)), Riego::Valvula_t::NORMAL);
-	riego.set_condicion(Condicion(Tiempo(14, 19), "lmj", Tiempo(0, 1)), Riego::Valvula_t::ADITIVA);
+	riego.set_condicion(Tiempo_Riego(Tiempo(14, 18), "lmj", Tiempo(0, 1)), Riego::Valvula_t::NORMAL);
+	riego.set_condicion(Tiempo_Riego(Tiempo(14, 19), "lmj", Tiempo(0, 1)), Riego::Valvula_t::ADITIVA);
 }
 
 void loop() {

@@ -48,12 +48,12 @@ String Riego::get_fecha()
 	return fecha_str;
 }
 
-void Riego::set_condicion(const Condicion condicion, const Riego::Valvula_t valvula)
+void Riego::set_condicion(const Tiempo_Riego condicion, const Riego::Valvula_t valvula)
 {
-	set_condicion(Pair<Condicion, Valvula_t>(condicion, valvula));
+	set_condicion(Pair<Tiempo_Riego, Valvula_t>(condicion, valvula));
 }
 
-void Riego::set_condicion(const Pair<Condicion, Valvula_t> condicion)
+void Riego::set_condicion(const Pair<Tiempo_Riego, Valvula_t> condicion)
 {
 	if (condiciones_activas < NUM_CONDICIONES)
 			condiciones[condiciones_activas++] = condicion;
@@ -61,34 +61,34 @@ void Riego::set_condicion(const Pair<Condicion, Valvula_t> condicion)
 		Serial.println("Se ha superado el numero de condiciones. Aumente NUM_CONDICIONES");
 }
 
-void Riego::set_condicion(const Pair<Condicion, Valvula_t> condiciones[])
+void Riego::set_condicion(const Pair<Tiempo_Riego, Valvula_t> condiciones[])
 {
 	for (unsigned i = 0; i < sizeof(condiciones); i++)
 		set_condicion(condiciones[i]);
 }
 
 
-Condicion::Condicion()
+Tiempo_Riego::Tiempo_Riego()
 {
 }
 
-Condicion::Condicion(const Tiempo fecha)
+Tiempo_Riego::Tiempo_Riego(const Tiempo fecha)
 {
 	this->hora = fecha;
 }
 
-Condicion::Condicion(const Tiempo fecha, const char dias[], const Tiempo duracion)
+Tiempo_Riego::Tiempo_Riego(const Tiempo fecha, const char dias[], const Tiempo duracion)
 {
 	this->hora = fecha;
 	set_dias_semanas(dias);
 	this->duracion = duracion;
 }
 
-bool Condicion::se_cumple_condicion(const DateTime fecha)
+bool Tiempo_Riego::se_cumple_condicion(const DateTime fecha)
 {
 	return this->operator()(fecha);
 }
-bool Condicion::operator()(const DateTime tiempo)
+bool Tiempo_Riego::operator()(const DateTime tiempo)
 {
 	if (dias_semana[tiempo.dayOfTheWeek()])
 	{
@@ -98,7 +98,7 @@ bool Condicion::operator()(const DateTime tiempo)
 	return false;
 }
 
-void Condicion::set_dias_semanas(const char dias_semana[])
+void Tiempo_Riego::set_dias_semanas(const char dias_semana[])
 {
 	for (unsigned i = 0; i < sizeof(dias_semana); i++)
 	{
@@ -133,12 +133,12 @@ void Condicion::set_dias_semanas(const char dias_semana[])
 	}
 }
 
-void Condicion::set_hora(const unsigned hora, const  unsigned minuto = 0, const  unsigned segundo = 0)
+void Tiempo_Riego::set_hora(const unsigned hora, const  unsigned minuto = 0, const  unsigned segundo = 0)
 {
 	this->hora = Tiempo(hora, minuto, segundo);
 }
 
-void Condicion::set_duracion(const Tiempo duracion)
+void Tiempo_Riego::set_duracion(const Tiempo duracion)
 {
 	this->duracion = duracion;
 }
