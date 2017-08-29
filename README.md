@@ -1,4 +1,4 @@
-# Riego-Autonomo ![Progress](http://progressed.io/bar/12?title=Progreso)
+# Riego-Autonomo ![Progress](http://progressed.io/bar/65?title=Progreso)
 
 Riego autonomo con dos depositos independientes y dos valvulas senoidales controladas con un Arduino nano y programacion C++ (IDE Visual Studio)
 
