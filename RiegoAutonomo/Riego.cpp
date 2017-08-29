@@ -20,12 +20,24 @@ void Riego::init()
 	else
 		if (clock.lostPower()) {
 			clock.adjust(DateTime(F(__DATE__), F(__TIME__)));
+			//clock.adjust(DateTime(2017, 8, 28, 15, 8));
 		}
-	//clock.adjust(DateTime(2017, 8, 28, 15, 8));
+	for (unsigned i = 0; i < NUM_VALVULAS; i++)
+		valvulas[i].cerrar();
 }
 
 void Riego::loop()
 {
+	DateTime tiempo = clock.now();
+	for (unsigned i = 0; i < condiciones_activas; i++)
+	{
+		if (condiciones[i].first(tiempo)) {
+			valvulas[condiciones[i].second].abrir();
+		}
+		else {
+			valvulas[condiciones[i].second].cerrar();
+		}
+	}
 }
 
 String Riego::get_fecha()
@@ -38,6 +50,24 @@ String Riego::get_fecha()
 
 void Riego::set_condicion(const Condicion condicion, const unsigned valvula)
 {
+	set_condicion(Pair<Condicion, unsigned>(condicion, valvula));
+}
+
+void Riego::set_condicion(const Pair<Condicion, unsigned> condicion)
+{
+	if (condiciones_activas < NUM_CONDICIONES)
+		if (condicion.second < NUM_VALVULAS)
+			condiciones[condiciones_activas++] = condicion;
+		else
+			Serial.println("Se ha introducido una condicion para una valvula que no existe. Revise NUM_VALVULAS");
+	else
+		Serial.println("Se ha superado el numero de condiciones. Aumente NUM_CONDICIONES");
+}
+
+void Riego::set_condicion(const Pair<Condicion, unsigned> condiciones[])
+{
+	for (unsigned i = 0; i < sizeof(condiciones); i++)
+		set_condicion(condiciones[i]);
 }
 
 
@@ -65,9 +95,8 @@ bool Condicion::operator()(const DateTime tiempo)
 {
 	if (dias_semana[tiempo.dayOfTheWeek()])
 	{
-		Tiempo hora(tiempo.hour(), tiempo.minute(), tiempo.second());
-		if (hora > this->hora && this->hora < hora + duracion)
-			return true;
+		Tiempo hora = Tiempo(tiempo.hour(), tiempo.minute(), tiempo.second());
+		return (hora > this->hora && hora < (this->hora + duracion));
 	}
 	return false;
 }
@@ -121,6 +150,7 @@ void Valvula::abrir()
 {
 	if (estado != estado_enum::ABIERTO)
 	{
+		Serial.print("Valvula con pin ");Serial.print(pin_valvula);Serial.println(" estaba cerrada y se ha ABIERTO");
 		digitalWrite(pin_valvula, HIGH);
 		estado = estado_enum::ABIERTO;
 	}
@@ -130,6 +160,7 @@ void Valvula::cerrar()
 {
 	if (estado != estado_enum::CERRADO)
 	{
+		Serial.print("Valvula con pin "); Serial.print(pin_valvula); Serial.println(" estaba abierta y se ha CERRADO");
 		digitalWrite(pin_valvula, LOW);
 		estado = estado_enum::CERRADO;
 	}

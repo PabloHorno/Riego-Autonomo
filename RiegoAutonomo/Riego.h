@@ -57,6 +57,7 @@ private:
 	String const nombre_dias[7] = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
 	String const nombre_meses[12] = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
 	Pair<Condicion, unsigned> condiciones[NUM_CONDICIONES];
+	unsigned condiciones_activas = 0;
 	Valvula valvulas[NUM_VALVULAS];
 public:
 	Riego(const unsigned[]);
@@ -64,6 +65,8 @@ public:
 	void loop();
 	String get_fecha();
 	void set_condicion(const Condicion, const unsigned);
+	void set_condicion(const Pair<Condicion, unsigned>);
+	void set_condicion(const Pair<Condicion, unsigned>[]);
 };
 #endif
 
