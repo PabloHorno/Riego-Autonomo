@@ -4,15 +4,16 @@
  Author:	Pablo Horno
 */
 #include "Riego.h"
-unsigned pins[] = { 4, 5 };
-Riego riego(pins);
+Pair<Riego::Valvula_t, unsigned> pines[] = { {Riego::Valvula_t::NORMAL, 4},
+											 {Riego::Valvula_t::ADITIVA, 5} };
+Riego riego(pines);
 void setup() {
 	Serial.begin(9600);
 	Serial.setTimeout(20);
 	Serial.println("Iniciando..");
 	riego.init();
-	riego.set_condicion(Condicion(Tiempo(12, 50), "lmj", Tiempo(0, 5)), 1);
-	riego.set_condicion(Condicion(Tiempo(12, 56), "lmj", Tiempo(0, 5)), 0);
+	riego.set_condicion(Condicion(Tiempo(14, 13), "lmj", Tiempo(0, 1)), Riego::Valvula_t::NORMAL);
+	riego.set_condicion(Condicion(Tiempo(14, 14), "lmj", Tiempo(0, 1)), Riego::Valvula_t::ADITIVA);
 }
 
 void loop() {

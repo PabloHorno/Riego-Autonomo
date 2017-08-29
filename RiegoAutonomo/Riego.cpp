@@ -4,10 +4,10 @@
 
 #include "Riego.h"
 
-Riego::Riego(const unsigned pin_valvula[])
+Riego::Riego(const Pair<Riego::Valvula_t, unsigned> pin_valvula[])
 {
-	for (unsigned i = 0; i < NUM_VALVULAS; i++)
-		valvulas[i] = Valvula(pin_valvula[i]);
+	for (unsigned i = 0; i < sizeof(pin_valvula); i++)
+		valvulas[(unsigned)pin_valvula[i].first] = Valvula(pin_valvula[(unsigned)pin_valvula[i].first].second);
 }
 
 void Riego::init()
@@ -22,7 +22,7 @@ void Riego::init()
 			clock.adjust(DateTime(F(__DATE__), F(__TIME__)));
 			//clock.adjust(DateTime(2017, 8, 28, 15, 8));
 		}
-	for (unsigned i = 0; i < NUM_VALVULAS; i++)
+	for (unsigned i = 0; i < (unsigned)Riego::Valvula_t::NUM_VALVULAS; i++)
 		valvulas[i].cerrar();
 }
 
@@ -32,10 +32,10 @@ void Riego::loop()
 	for (unsigned i = 0; i < condiciones_activas; i++)
 	{
 		if (condiciones[i].first(tiempo)) {
-			valvulas[condiciones[i].second].abrir();
+			valvulas[(unsigned)condiciones[i].second].abrir();
 		}
 		else {
-			valvulas[condiciones[i].second].cerrar();
+			valvulas[(unsigned)condiciones[i].second].cerrar();
 		}
 	}
 }
@@ -48,23 +48,20 @@ String Riego::get_fecha()
 	return fecha_str;
 }
 
-void Riego::set_condicion(const Condicion condicion, const unsigned valvula)
+void Riego::set_condicion(const Condicion condicion, const Riego::Valvula_t valvula)
 {
-	set_condicion(Pair<Condicion, unsigned>(condicion, valvula));
+	set_condicion(Pair<Condicion, Valvula_t>(condicion, valvula));
 }
 
-void Riego::set_condicion(const Pair<Condicion, unsigned> condicion)
+void Riego::set_condicion(const Pair<Condicion, Valvula_t> condicion)
 {
 	if (condiciones_activas < NUM_CONDICIONES)
-		if (condicion.second < NUM_VALVULAS)
 			condiciones[condiciones_activas++] = condicion;
-		else
-			Serial.println("Se ha introducido una condicion para una valvula que no existe. Revise NUM_VALVULAS");
 	else
 		Serial.println("Se ha superado el numero de condiciones. Aumente NUM_CONDICIONES");
 }
 
-void Riego::set_condicion(const Pair<Condicion, unsigned> condiciones[])
+void Riego::set_condicion(const Pair<Condicion, Valvula_t> condiciones[])
 {
 	for (unsigned i = 0; i < sizeof(condiciones); i++)
 		set_condicion(condiciones[i]);

@@ -16,7 +16,6 @@
 #include "Pair.h"
 
 #define NUM_CONDICIONES 20
-#define NUM_VALVULAS 2
 
 class Condicion
 {
@@ -52,21 +51,29 @@ private:
 
 class Riego
 {
+public:
+	enum class Valvula_t
+	{
+		NORMAL,
+		ADITIVA,
+
+		NUM_VALVULAS
+	};
 private:
 	RTC_DS3231 clock;
 	String const nombre_dias[7] = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
 	String const nombre_meses[12] = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
-	Pair<Condicion, unsigned> condiciones[NUM_CONDICIONES];
+	Pair<Condicion, Valvula_t> condiciones[NUM_CONDICIONES];
 	unsigned condiciones_activas = 0;
-	Valvula valvulas[NUM_VALVULAS];
+	Valvula valvulas[(unsigned)Riego::Valvula_t::NUM_VALVULAS];
 public:
-	Riego(const unsigned[]);
+	Riego(const Pair<Riego::Valvula_t, unsigned>[]);
 	void init();
 	void loop();
 	String get_fecha();
-	void set_condicion(const Condicion, const unsigned);
-	void set_condicion(const Pair<Condicion, unsigned>);
-	void set_condicion(const Pair<Condicion, unsigned>[]);
+	void set_condicion(const Condicion, const Valvula_t);
+	void set_condicion(const Pair<Condicion, Valvula_t>);
+	void set_condicion(const Pair<Condicion, Valvula_t>[]);
 };
 #endif
 
