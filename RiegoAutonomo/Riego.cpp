@@ -4,10 +4,10 @@
 
 #include "Riego.h"
 
-Riego::Riego(const Pair<Riego::Valvula_t, unsigned> pin_valvula[])
+Riego::Riego(const Pair<unsigned, Riego::Valvula_t> pin_valvula[])
 {
 	for (unsigned i = 0; i < sizeof(pin_valvula); i++)
-		valvulas[(unsigned)pin_valvula[i].first] = Valvula(pin_valvula[(unsigned)pin_valvula[i].first].second);
+		valvulas[(unsigned)pin_valvula[i].second] = Valvula(pin_valvula[(unsigned)pin_valvula[i].second].first);
 }
 
 void Riego::init()

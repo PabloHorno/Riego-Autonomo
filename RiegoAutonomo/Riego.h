@@ -68,7 +68,7 @@ private:
 	unsigned condiciones_activas = 0;
 	Valvula valvulas[(unsigned)Riego::Valvula_t::NUM_VALVULAS];
 public:
-	Riego(const Pair<Riego::Valvula_t, unsigned>[]);
+	Riego(const Pair<unsigned, Riego::Valvula_t>[]);
 	void init();
 	void loop();
 	String get_fecha();

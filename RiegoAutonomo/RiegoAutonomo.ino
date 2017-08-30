@@ -4,8 +4,8 @@
  Author:	Pablo Horno
 */
 #include "Riego.h"
-Pair<Riego::Valvula_t, unsigned> pines[] = { {Riego::Valvula_t::NORMAL, 4},
-											 {Riego::Valvula_t::ADITIVA, 5} };
+Pair<unsigned, Riego::Valvula_t> pines[] = { {3, Riego::Valvula_t::NORMAL},
+											 {4, Riego::Valvula_t::ADITIVA} };
 Riego riego(pines);
 void setup() {
 	Serial.begin(9600);
