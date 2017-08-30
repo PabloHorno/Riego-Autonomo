@@ -12,6 +12,7 @@
 #include <Time.h>
 #include <Wire.h>
 #include <RTClib.h>
+#include <DHT.h>
 #include "Tiempo.h"
 #include "Pair.h"
 
