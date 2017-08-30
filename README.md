@@ -7,7 +7,7 @@ El codigo dispone de dos clases principales, **Riego** encargada de gestionar la
 ## Material empleado
 
 |     Componente       |    Unidades   |  Referencia |  Precio |
-| -------------------- |:-------------:|  :........: | .....:  |
+| -------------------- |:-------------:|:-----------:|--------:|
 | Arduino nano         |     1         |      ref    |  4,66€  |
 | Valvula de solenoide |     2         |      ref    | 13,01€  |
 | RTC DS3231           |     1         |      ref    |  2,45€  |
