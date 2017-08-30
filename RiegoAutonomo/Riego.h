@@ -57,6 +57,7 @@ public:
 		NORMAL,
 		ADITIVA,
 
+		//Añadir valvulas por encima
 		NUM_VALVULAS
 	};
 private:
