@@ -14,7 +14,7 @@ El codigo dispone de dos clases principales, **Riego** encargada de gestionar la
 | Sensor de Humedad    |     1         |      ref    | --,--€  |
 | ENC28J60 Modulo RED  |     1         |      ref    |  3,85€  |
 | ~~Caudalimetro~~     |     1         |      ref    | --,--€  |
-|            a         |     a         |  **Total:** |**23,97€**|
+|                      |               |  **Total:** |**23,97€**|
 
 ### Autor
 Pablo Horno
