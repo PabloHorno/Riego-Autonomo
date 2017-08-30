@@ -6,13 +6,16 @@ El codigo dispone de dos clases principales, **Riego** encargada de gestionar la
 
 ## Material empleado
 
-|     Componente       |    Unidades   |  Precio |
-| -------------------- |:-------------:| -------:|
-| Arduino nano         |     1         | --,--€  |
-| Valvula de solenoide |     2         | --,--€  |
-| RTC                  |     1         | --,--€  |
-| Sensor de Humedad    |     1         | --,--€  |
-| ~~Caudalimetro~~     |     1         | --,--€  |
+|     Componente       |    Unidades   |  Referencia |  Precio |
+| -------------------- |:-------------:|  :........: | .....:  |
+| Arduino nano         |     1         |      ref    |  4,66€  |
+| Valvula de solenoide |     2         |      ref    | 13,01€  |
+| RTC DS3231           |     1         |      ref    |  2,45€  |
+| Sensor de Humedad    |     1         |      ref    | --,--€  |
+| ENC28J60 Modulo RED  |     1         |      ref    |  3,85€  |
+| ~~Caudalimetro~~     |     1         |      ref    | --,--€  |
+| -------------------- |:-------------:|  .........: | .....:  |
+|                      |               |  **Total:** |**23,97€**|
 
 ### Autor
 Pablo Horno
