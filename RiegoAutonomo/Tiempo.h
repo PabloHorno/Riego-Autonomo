@@ -9,7 +9,9 @@ public:
 	unsigned minuto;
 	unsigned segundo;
 	friend bool operator<(const Tiempo, const Tiempo);
+	friend bool operator<=(const Tiempo, const Tiempo);
 	friend bool operator>(const Tiempo, const Tiempo);
+	friend bool operator>=(const Tiempo, const Tiempo);
 	friend Tiempo operator+(const Tiempo, const Tiempo);
 	Tiempo& operator+=( const Tiempo&);
 };

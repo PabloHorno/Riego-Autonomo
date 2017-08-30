@@ -23,12 +23,20 @@ Tiempo::Tiempo(unsigned hora, unsigned minuto, unsigned segundo)
 
 bool operator<(const Tiempo a, const Tiempo b)
 {
-	return (a.hora < b.hora || (a.hora == b.hora && a.minuto < b.minuto) || (a.hora == b.hora && a.minuto == b.minuto &&  a.segundo < b.segundo) );
+	return (a.hora < b.hora || (a.hora == b.hora && a.minuto < b.minuto) || (a.hora == b.hora && a.minuto == b.minuto &&  a.segundo < b.segundo));
+}
+bool operator<=(const Tiempo a, const Tiempo b)
+{
+	return (a.hora <= b.hora || (a.hora == b.hora && a.minuto <= b.minuto) || (a.hora == b.hora && a.minuto == b.minuto &&  a.segundo <= b.segundo));
 }
 
 bool operator>(const Tiempo a, const Tiempo b)
 {
 	return (a.hora > b.hora || (a.hora == b.hora && a.minuto > b.minuto) || (a.hora == b.hora && a.minuto == b.minuto &&  a.segundo > b.segundo));
+}
+bool operator>=(const Tiempo a, const Tiempo b)
+{
+	return (a.hora >= b.hora || (a.hora == b.hora && a.minuto >= b.minuto) || (a.hora == b.hora && a.minuto == b.minuto &&  a.segundo >= b.segundo));
 }
 
 Tiempo operator+(const Tiempo a, const Tiempo b)

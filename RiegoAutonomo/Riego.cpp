@@ -22,8 +22,9 @@ void Riego::init()
 			clock.adjust(DateTime(F(__DATE__), F(__TIME__)));
 			//clock.adjust(DateTime(2017, 8, 28, 15, 8));
 		}
-	for (unsigned i = 0; i < (unsigned)Riego::Valvula_t::NUM_VALVULAS; i++)
+	for (unsigned i = 0; i < (unsigned)Riego::Valvula_t::NUM_VALVULAS; i++) {
 		valvulas[i].cerrar();
+	}
 }
 
 void Riego::loop()
