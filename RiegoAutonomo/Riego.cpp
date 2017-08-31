@@ -72,3 +72,19 @@ void Riego::set_condicion(const Pair<Tiempo_Riego, Valvula_t> condiciones[])
 	for (unsigned i = 0; i < sizeof(condiciones); i++)
 		set_condicion(condiciones[i]);
 }
+
+double Riego::get_temperatura()
+{
+	double temp = sensor_temperatura.readTemperature();
+	if (isnan(temp))
+		return Serial.println("Error al leer temperatura.");
+	return temp;
+}
+
+double Riego::get_humedad()
+{
+	double hum = sensor_temperatura.readTemperature();
+	if (isnan(hum))
+		return Serial.println("Error al leer humedad.");
+	return hum;
+}

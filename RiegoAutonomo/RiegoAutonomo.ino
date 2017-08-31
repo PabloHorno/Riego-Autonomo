@@ -3,6 +3,7 @@
  Created:	8/22/2017 5:47:38 PM
  Author:	Pablo Horno
 */
+#include "Ethernet_web.h"
 #include "Riego.h"
 Pair<unsigned, Riego::Valvula_t> pines[] = { {3, Riego::Valvula_t::NORMAL},
 											 {4, Riego::Valvula_t::ADITIVA} };
