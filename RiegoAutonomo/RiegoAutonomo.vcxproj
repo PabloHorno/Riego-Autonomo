@@ -82,14 +82,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="chrono.h" />
+    <ClInclude Include="DHT.h" />
     <ClInclude Include="Pair.h" />
     <ClInclude Include="Riego.h" />
     <ClInclude Include="Tiempo.h" />
+    <ClInclude Include="Tiempo_Riego.h" />
+    <ClInclude Include="Valvula.h" />
     <ClInclude Include="__vm\.RiegoAutonomo.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DHT.cpp" />
     <ClCompile Include="Riego.cpp" />
     <ClCompile Include="Tiempo.cpp" />
+    <ClCompile Include="Tiempo_Riego.cpp" />
+    <ClCompile Include="Valvula.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,43 +12,15 @@
 #include <Time.h>
 #include <Wire.h>
 #include <RTClib.h>
-#include <DHT.h>
-#include "Tiempo.h"
+#include "DHT.h"
 #include "Pair.h"
+#include "Tiempo.h"
+#include "Valvula.h"
+#include "Tiempo_Riego.h"
 
 #define NUM_CONDICIONES 20
+#define PIN_TEMPERATURA 20
 
-class Tiempo_Riego
-{
-public:
-	Tiempo_Riego();
-	Tiempo_Riego(const Tiempo);
-	Tiempo_Riego(const Tiempo, const char[], const Tiempo);
-
-	bool se_cumple_condicion(const DateTime);
-	bool operator()(const DateTime);
-	void set_dias_semanas(const char[]);
-	void set_hora(const unsigned, const unsigned, const unsigned);
-	void set_duracion(const Tiempo);
-
-private:
-	bool dias_semana[7] = { false,false,false,false,false,false,false };
-	Tiempo hora;
-	Tiempo duracion;
-};
-
-class Valvula
-{
-public:
-	Valvula(unsigned pin) { pin_valvula = pin; }
-	Valvula() {};
-	enum class estado_enum { ABIERTO, CERRADO, DESCONOCIDO };
-	estado_enum estado = estado_enum::DESCONOCIDO;
-	void abrir();
-	void cerrar();
-private:
-	unsigned pin_valvula = 0;
-};
 
 class Riego
 {
@@ -68,6 +40,7 @@ private:
 	Pair<Tiempo_Riego, Valvula_t> condiciones[NUM_CONDICIONES];
 	unsigned condiciones_activas = 0;
 	Valvula valvulas[(unsigned)Riego::Valvula_t::NUM_VALVULAS];
+	DHT sensor_temperatura = DHT(PIN_TEMPERATURA, DHT22);
 public:
 	Riego(const Pair<unsigned, Riego::Valvula_t>[]);
 	void init();

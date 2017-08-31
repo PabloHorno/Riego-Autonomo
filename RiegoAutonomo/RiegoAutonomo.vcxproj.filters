@@ -27,6 +27,18 @@
     <ClInclude Include="Pair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DHT.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Valvula.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiempo_Riego.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chrono.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="RiegoAutonomo.ino" />
@@ -36,6 +48,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tiempo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DHT.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Valvula.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tiempo_Riego.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
