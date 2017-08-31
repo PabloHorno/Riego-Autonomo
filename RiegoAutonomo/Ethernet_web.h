@@ -11,6 +11,7 @@
 
 #include <SPI.h>
 #include <Ethernet.h>
+#include "Tiempo.h"
 
 class Ethernet_web
 {
@@ -20,7 +21,7 @@ class Ethernet_web
 	 EthernetServer server = EthernetServer(80);
  public:
 	 void init();
-	 void loop();
+	 void loop(double, double, String);
 };
 
 

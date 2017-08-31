@@ -47,7 +47,8 @@ public:
 	Riego(const Pair<unsigned, Riego::Valvula_t>[]);
 	void init();
 	void loop();
-	String get_fecha();
+	DateTime get_fecha();
+	String get_fecha_str();
 	void set_condicion(const Tiempo_Riego, const Valvula_t);
 	void set_condicion(const Pair<Tiempo_Riego, Valvula_t>);
 	void set_condicion(const Pair<Tiempo_Riego, Valvula_t>[]);

@@ -12,7 +12,7 @@ void Ethernet_web::init()
 	Serial.println(Ethernet.localIP());
 }
 
-void Ethernet_web::loop()
+void Ethernet_web::loop(double temperatura = 0, double humedad = 0, String hora = "--/--/---- @ --:--")
 {
 	// listen for incoming clients
 	EthernetClient client = server.available();
@@ -37,6 +37,7 @@ void Ethernet_web::loop()
 					client.println("<!DOCTYPE HTML>");
 					client.println("<html>");
 					// output the value of each analog input pin
+					client.print("La temperatura es de: ");
 					for (int analogChannel = 0; analogChannel < 6; analogChannel++) {
 						int sensorReading = analogRead(analogChannel);
 						client.print("analog input ");

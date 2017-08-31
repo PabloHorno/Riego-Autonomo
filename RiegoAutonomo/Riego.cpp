@@ -46,7 +46,11 @@ void Riego::loop()
 	}
 }
 
-String Riego::get_fecha()
+DateTime Riego::get_fecha()
+{
+	return clock.now();
+}
+String Riego::get_fecha_str()
 {
 	DateTime fecha = clock.now();
 	String fecha_str = String(nombre_dias[fecha.dayOfTheWeek()] + ' ' + fecha.hour() + ':' + fecha.minute() + ':' + fecha.second() + ' ' + fecha.year() + '/' + fecha.month() + '/' + fecha.day());
