@@ -38,14 +38,11 @@ void Ethernet_web::loop(double temperatura = 0, double humedad = 0, String hora 
 					client.println("<html>");
 					// output the value of each analog input pin
 					client.print("La temperatura es de: ");
-					for (int analogChannel = 0; analogChannel < 6; analogChannel++) {
-						int sensorReading = analogRead(analogChannel);
-						client.print("analog input ");
-						client.print(analogChannel);
-						client.print(" is ");
-						client.print(sensorReading);
-						client.println("<br />");
-					}
+					client.println(temperatura);
+					client.print("La humedad es de: ");
+					client.println(humedad);
+					client.println("<br><br><br>");
+					client.println(hora);
 					client.println("</html>");
 					break;
 				}

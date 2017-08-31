@@ -21,12 +21,6 @@
     <ClInclude Include="Riego.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tiempo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pair.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DHT.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
@@ -41,6 +35,12 @@
     </ClInclude>
     <ClInclude Include="Ethernet_web.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiempo.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pair.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
