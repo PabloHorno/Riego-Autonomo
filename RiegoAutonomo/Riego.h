@@ -12,7 +12,7 @@
 #include <Time.h>
 #include <Wire.h>
 #include <RTClib.h>
-#include <Ethernet.h>
+#include <EtherCard.h>
 #include "DHT.h"
 #include "Pair.h"
 #include "Tiempo.h"
