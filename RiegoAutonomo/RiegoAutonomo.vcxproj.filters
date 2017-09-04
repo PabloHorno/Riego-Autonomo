@@ -33,14 +33,14 @@
     <ClInclude Include="chrono.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ethernet_web.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Tiempo.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="Pair.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Servidor_HTTP.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -62,7 +62,7 @@
     <ClCompile Include="Tiempo_Riego.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ethernet_web.cpp">
+    <ClCompile Include="Servidor_HTTP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
