@@ -9,6 +9,7 @@
 Pair<unsigned, Riego::Valvula_t> pines[] = { {3, Riego::Valvula_t::NORMAL},
 											 {4, Riego::Valvula_t::ADITIVA} };
 Riego riego(pines);
+byte Ethernet::buffer[700];
 Servidor_HTTP web;
 void setup() {
 	Serial.begin(9600);

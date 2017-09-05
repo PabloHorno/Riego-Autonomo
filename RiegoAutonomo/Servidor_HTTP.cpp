@@ -3,7 +3,7 @@
 void Servidor_HTTP::init(tipo_ip ip)
 {
 
-	if (ether.begin(sizeof Ethernet::buffer, mac) == 0)
+	if (ether.begin(sizeof 700, mac) == 0)
 		Serial.println("Failed to access Ethernet controller");
 	if(ip == tipo_ip::ESTATICA)
 		ether.staticSetup(this->ip, this->get_way_ip);
