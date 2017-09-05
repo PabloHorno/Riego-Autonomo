@@ -22,10 +22,11 @@ public:
 		ESTATICA,
 		DHCP
 	};
+	Servidor_HTTP() {};
 	void init(tipo_ip);
 	void loop();
 private:
-	static byte Ethernet::buffer[700];
+	//static byte Ethernet::buffer[700]; declarado global
 	const byte mac[6] = { 0x74,0x69,0x69,0x2D,0x30,0x31 };
 	const byte ip[4] = { 192, 168, 1, 10 };
 	const byte get_way_ip[4] = {192, 168, 1, 1};

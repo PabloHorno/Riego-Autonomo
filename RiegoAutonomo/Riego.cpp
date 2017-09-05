@@ -27,9 +27,8 @@ void Riego::init()
 	sensor_temperatura.begin();
 	Serial.println("Iniciando sensor tempertura...");
 
-	for (unsigned i = 0; i < (unsigned)Riego::Valvula_t::NUM_VALVULAS; i++) {
+	for (unsigned i = 0; i < (unsigned)Riego::Valvula_t::NUM_VALVULAS; i++)
 		valvulas[i].cerrar();
-	}
 }
 
 void Riego::loop()
