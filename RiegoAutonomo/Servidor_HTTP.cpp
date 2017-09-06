@@ -23,6 +23,21 @@ void Servidor_HTTP::loop()
 	if (pos)
 	{
 		Serial.println("Un cliente");
+		if (strstr((char *)Ethernet::buffer + pos, PSTR("GET /?data1=0")) != 0) {
+			Serial.println("Led1 OFF");
+		}
+
+		if (strstr((char *)Ethernet::buffer + pos, PSTR("GET /?data1=1")) != 0) {
+			Serial.println("Led1 ON");
+		}
+
+		if (strstr((char *)Ethernet::buffer + pos, PSTR("GET /?data2=0")) != 0) {
+			Serial.println("Led2 OFF recieved");
+		}
+
+		if (strstr((char *)Ethernet::buffer + pos, PSTR("GET /?data2=1")) != 0) {
+			Serial.println("Led2 ON");
+		}
 		ether.httpServerReply(mainPage());
 	}
 }
@@ -32,14 +47,11 @@ word Servidor_HTTP::mainPage()
 	BufferFiller bfill;
 	bfill = ether.tcpOffset();
 	bfill.emit_p(PSTR("<html><body>"
-		/*"<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>"
-		"<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>"
-		"<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>"
-		"</head> <body><h1>High</h1>"*/
-		"<iframe src='http://192.241.236.31/themes/preview/smartadmin/1.8.x/ajax/index.html#ajax/dashboard.html?v=1.8.7.3' width='100%' height='100%' frameborder='0'>"
+		"<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>"
+		"</head><body>"
 		"Alternative text for browsers that do not understand IFrames."
 		"</iframe>"
-		"</body> </html> "));
+		"</body></html>"));
 	return bfill.position();
 }
 
