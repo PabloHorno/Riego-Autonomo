@@ -19,7 +19,7 @@
 #include "Tiempo_Riego.h"
 
 #define NUM_CONDICIONES 5
-#define PIN_TEMPERATURA 20
+#define PIN_TEMPERATURA 5
 
 
 class Riego
