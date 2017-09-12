@@ -25,10 +25,10 @@ public:
 	};
 	Servidor_HTTP() {};
 	void init(tipo_ip);
-	void loop(DateTime);
+	void loop(const char[], const double, const double);
 private:
 	const byte mac[6] = { 0x74,0x69,0x69,0x2D,0x30,0x31 };
-	const byte ip[4] = { 192, 168, 1, 10 };
+	const byte ip[4] = { 192, 168, 1, 100 };
 	const byte get_way_ip[4] = {192, 168, 1, 1};
 };
 

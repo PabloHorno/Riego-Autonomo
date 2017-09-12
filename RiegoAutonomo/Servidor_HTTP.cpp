@@ -15,7 +15,8 @@ void Servidor_HTTP::init(tipo_ip ip)
 	ether.printIp("DNS: ", ether.dnsip);
 }
 
-void Servidor_HTTP::loop(DateTime hora)
+
+void Servidor_HTTP::loop(const char hora[] = "--:--:-- --/--/----", const double temperatura = 0, const double humedad = 0)
 {
 	word len = ether.packetReceive();
 	word pos = ether.packetLoop(len);
@@ -44,8 +45,10 @@ void Servidor_HTTP::loop(DateTime hora)
 		bfill.emit_p(PSTR("<html><body>"
 			"<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>"
 			"</head><body>"
-			"<div><h1>$D:$D:%D - $D/$D/$D</h1></div>"
-			"</body></html>"), hora.hour(), hora.minute(), hora.second(), hora.day(), hora.month(), hora.year());
+			"<div><h1>$F</h1>"
+			"<h2>Temperatura:$T</h2>"
+			"<h2>Humedad:$T</h2>"
+			"</body></html>"), hora, temperatura, humedad);
 		ether.httpServerReply(bfill.position());
 	}
 }

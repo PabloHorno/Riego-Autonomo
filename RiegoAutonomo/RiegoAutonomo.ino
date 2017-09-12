@@ -29,5 +29,5 @@ void loop() {
 	Serial.print(riego.get_temperatura()); Serial.println("*C");
 	Serial.print(riego.get_humedad()); Serial.println("%");
 	delay(10000);
-	web.loop(riego.get_fecha());
+	web.loop(riego.get_fecha_str().c_str(), riego.get_temperatura(), riego.get_humedad());
 }
