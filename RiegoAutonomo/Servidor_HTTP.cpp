@@ -15,7 +15,7 @@ void Servidor_HTTP::init(tipo_ip ip)
 	ether.printIp("DNS: ", ether.dnsip);
 }
 
-void Servidor_HTTP::loop()
+void Servidor_HTTP::loop(DateTime)
 {
 	word len = ether.packetReceive();
 	word pos = ether.packetLoop(len);
@@ -38,20 +38,16 @@ void Servidor_HTTP::loop()
 		if (strstr((char *)Ethernet::buffer + pos, PSTR("GET /?data2=1")) != 0) {
 			Serial.println("Led2 ON");
 		}
-		ether.httpServerReply(mainPage());
+
+		BufferFiller bfill;
+		bfill = ether.tcpOffset();
+		bfill.emit_p(PSTR("<html><body>"
+			"<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>"
+			"</head><body>"
+			"<div><h1>$D:$D:%D - $D/$D/$D</h1></div>"
+			"</body></html>"), hora.hour(), hora.minute(), hora.second(), hora.day(), hora.month(), hora.year());
+		ether.httpServerReply(bfill.position());
 	}
 }
 
-word Servidor_HTTP::mainPage()
-{
-	BufferFiller bfill;
-	bfill = ether.tcpOffset();
-	bfill.emit_p(PSTR("<html><body>"
-		"<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>"
-		"</head><body>"
-		"Alternative text for browsers that do not understand IFrames."
-		"</iframe>"
-		"</body></html>"));
-	return bfill.position();
-}
 
