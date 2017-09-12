@@ -52,7 +52,7 @@ const DateTime Riego::get_fecha()
 String Riego::get_fecha_str()
 {
 	DateTime fecha = clock.now();
-	String fecha_str = String(nombre_dias[fecha.dayOfTheWeek()] + ' ' + fecha.hour() + ':' + fecha.minute() + ':' + fecha.second() + ' ' + fecha.year() + '/' + fecha.month() + '/' + fecha.day());
+	String fecha_str = String(nombre_dias[fecha.dayOfTheWeek()] + ' ' + fecha.hour() + ':' + fecha.minute() + ':' + fecha.second() + ' ' + fecha.day() + '/' + fecha.month() + '/' + fecha.year());
 
 	return fecha_str;
 }
