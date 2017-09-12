@@ -12,7 +12,7 @@
 #include <net.h>
 #include <EtherCard.h>
 #include <enc28j60.h>
-#include <time.h>
+#include <RTCLib.h>
 #define TAM_BUFFER 300
 
 class Servidor_HTTP

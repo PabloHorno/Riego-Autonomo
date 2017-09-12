@@ -15,7 +15,7 @@ void Servidor_HTTP::init(tipo_ip ip)
 	ether.printIp("DNS: ", ether.dnsip);
 }
 
-void Servidor_HTTP::loop(DateTime)
+void Servidor_HTTP::loop(DateTime hora)
 {
 	word len = ether.packetReceive();
 	word pos = ether.packetLoop(len);
