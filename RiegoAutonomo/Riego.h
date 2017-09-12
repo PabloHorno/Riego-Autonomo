@@ -12,14 +12,13 @@
 #include <Time.h>
 #include <Wire.h>
 #include <RTClib.h>
-#include "DHT.h"
+#include <DHT.h>
 #include "Pair.h"
 #include "Tiempo.h"
 #include "Valvula.h"
 #include "Tiempo_Riego.h"
-#include "chrono.h"
 
-#define NUM_CONDICIONES 20
+#define NUM_CONDICIONES 5
 #define PIN_TEMPERATURA 20
 
 
@@ -36,8 +35,8 @@ public:
 	};
 private:
 	RTC_DS3231 clock;
-	const String nombre_dias[7] = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
-	const String nombre_meses[12] = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+	const String nombre_dias[7] PROGMEM = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
+	const String nombre_meses[12] PROGMEM = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
 	Pair<Tiempo_Riego, Valvula_t> condiciones[NUM_CONDICIONES];
 	unsigned condiciones_activas = 0;
 	Valvula valvulas[(unsigned)Riego::Valvula_t::NUM_VALVULAS];
@@ -46,7 +45,7 @@ public:
 	Riego(const Pair<unsigned, Riego::Valvula_t>[]);
 	void init();
 	void loop();
-	DateTime get_fecha();
+	const DateTime get_fecha() PROGMEM;
 	String get_fecha_str();
 	void set_condicion(const Tiempo_Riego, const Valvula_t);
 	void set_condicion(const Pair<Tiempo_Riego, Valvula_t>);

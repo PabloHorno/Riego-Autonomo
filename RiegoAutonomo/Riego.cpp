@@ -24,7 +24,6 @@ void Riego::init()
 		}
 		else
 			Serial.println("Reloj RTC:  OK");
-
 	sensor_temperatura.begin();
 	Serial.println("Iniciando sensor tempertura...");
 
@@ -46,14 +45,16 @@ void Riego::loop()
 	}
 }
 
-DateTime Riego::get_fecha()
+const DateTime Riego::get_fecha()
 {
 	return clock.now();
 }
 String Riego::get_fecha_str()
 {
 	DateTime fecha = clock.now();
-	return String(nombre_dias[fecha.dayOfTheWeek()] + ' ' + fecha.hour() + ':' + fecha.minute() + ':' + fecha.second() + ' ' + fecha.day() + '/' + fecha.month() + '/' + fecha.year());
+	String fecha_str = String(nombre_dias[fecha.dayOfTheWeek()] + ' ' + fecha.hour() + ':' + fecha.minute() + ':' + fecha.second() + ' ' + fecha.year() + '/' + fecha.month() + '/' + fecha.day());
+
+	return fecha_str;
 }
 
 void Riego::set_condicion(const Tiempo_Riego condicion, const Riego::Valvula_t valvula)
@@ -63,8 +64,12 @@ void Riego::set_condicion(const Tiempo_Riego condicion, const Riego::Valvula_t v
 
 void Riego::set_condicion(const Pair<Tiempo_Riego, Valvula_t> condicion)
 {
-	if (condiciones_activas < NUM_CONDICIONES)
+	if (condiciones_activas < NUM_CONDICIONES) {
 		condiciones[condiciones_activas++] = condicion;
+		Serial.print("Condicion seteada ["); 
+		Serial.print(condiciones_activas);
+		Serial.println("]");
+	}
 	else
 		Serial.println("Se ha superado el numero de condiciones. Aumente NUM_CONDICIONES");
 }
