@@ -7,7 +7,7 @@
 //#include "Servidor_HTTP.h"
 #include "Riego.h"
 Pair<unsigned, Riego::Valvula_t> pines[] = { {3, Riego::Valvula_t::NORMAL},
-											 {4, Riego::Valvula_t::ADITIVA} };
+											 {6, Riego::Valvula_t::ADITIVA} };
 Riego riego(pines);
 
 //byte Ethernet::buffer[TAM_BUFFER];
