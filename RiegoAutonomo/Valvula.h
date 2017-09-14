@@ -16,6 +16,7 @@ public:
 	Valvula() {};
 	enum class estado_enum { ABIERTO, CERRADO, DESCONOCIDO };
 	estado_enum estado = estado_enum::DESCONOCIDO;
+	void init();
 	void abrir();
 	void cerrar();
 private:

@@ -24,11 +24,12 @@ void Riego::init()
 		}
 		else
 			Serial.println("Reloj RTC:  OK");
+
 	sensor_temperatura.begin();
 	Serial.println("Iniciando sensor tempertura...");
 
 	for (unsigned i = 0; i < (unsigned)Riego::Valvula_t::NUM_VALVULAS; i++)
-		valvulas[i].cerrar();
+		valvulas[i].init();
 }
 
 void Riego::loop()

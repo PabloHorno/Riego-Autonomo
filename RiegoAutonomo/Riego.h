@@ -39,9 +39,10 @@ private:
 	const String nombre_meses[12] PROGMEM = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
 	Pair<Tiempo_Riego, Valvula_t> condiciones[NUM_CONDICIONES];
 	unsigned condiciones_activas = 0;
-	Valvula valvulas[(unsigned)Riego::Valvula_t::NUM_VALVULAS];
+	//Valvula valvulas[(unsigned)Riego::Valvula_t::NUM_VALVULAS];
 	DHT sensor_temperatura = DHT(PIN_TEMPERATURA, DHT22);
 public:
+	Valvula valvulas[(unsigned)Riego::Valvula_t::NUM_VALVULAS];
 	Riego(const Pair<unsigned, Riego::Valvula_t>[]);
 	void init();
 	void loop();
