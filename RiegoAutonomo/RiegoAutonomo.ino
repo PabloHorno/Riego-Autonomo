@@ -16,8 +16,7 @@ void setup() {
 	Serial.begin(9600);
 	Serial.println("Iniciando..");
 	riego.init();
-	riego.set_condicion(Tiempo_Riego(Tiempo(14, 18), "lmj", Tiempo(0, 1)), Riego::Valvula_t::NORMAL);
-	riego.set_condicion(Tiempo_Riego(Tiempo(14, 19), "lmj", Tiempo(0, 1)), Riego::Valvula_t::ADITIVA);
+	//riego.set_condicion(Tiempo_Riego(Tiempo(19, 35), "lmjv", Tiempo(1)), Riego::Valvula_t::NORMAL);
 
 //	web.init(Servidor_HTTP::tipo_ip::ESTATICA);
 }
@@ -26,9 +25,6 @@ void loop() {
 	//riego.loop();
 	
 	Serial.println(riego.get_fecha_str());
-	riego.valvulas[(unsigned)Riego::Valvula_t::ADITIVA].abrir();
-	delay(10000);
-	riego.valvulas[(unsigned)Riego::Valvula_t::ADITIVA].cerrar();
-	delay(10000);
+	riego.valvulas[(unsigned)Riego::Valvula_t::NORMAL].abrir();
 //	web.loop(riego.get_fecha_str().c_str(), riego.get_temperatura(), riego.get_humedad());
 }
