@@ -11,10 +11,11 @@ El codigo dispone de dos clases principales, **Riego** encargada de gestionar la
 | Arduino nano         |     1         |      ref    |  4,66€  |
 | Valvula de solenoide |     2         |      ref    | 13,01€  |
 | RTC DS3231           |     1         |      ref    |  2,45€  |
-| Sensor de Humedad    |     1         |      ref    | --,--€  |
+| Sensor Temperatura   |     1         |      ref    |  3,99€  |
 | ENC28J60 Modulo RED  |     1         |      ref    |  3,85€  |
-| ~~Caudalimetro~~     |     1         |      ref    | --,--€  |
-|                      |               |  **Total:** |**23,97€**|
+| Manguera C02         |     2m        |      ref    |  3,45€  |
+| Hojas transfer       |     5         |      ref    |  6,50€  |
+|                      |               |  **Total:** |**37,91€**|
 
 ### Autor
 Pablo Horno
